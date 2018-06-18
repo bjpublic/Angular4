@@ -1,0 +1,14 @@
+{
+  "name": "code14-30",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node_modules/.bin/webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "json-loader": "^0.5.4",
+    "raw-loader": "^0.5.1",
+    "typescript": "^2.1.6",
+    "webpack": "^2.2.1"
+  }
+}

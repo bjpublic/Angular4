@@ -1,0 +1,36 @@
+{
+  "name": "code12-39",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "node_modules/.bin/webpack --config webpack_client.config.js",
+    "server": "node_modules/.bin/webpack --config webpack_server.config.js",
+    "start": "node dist/bundle_server.js"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-server": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "@types/core-js": "0.9.36",
+    "@types/node": "7.0.7",
+    "angular-router-loader": "^0.5.0",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.1.2",
+    "body-parser": "^1.16.1",
+    "core-js": "^2.4.1",
+    "express": "^4.14.1",
+    "json-loader": "^0.5.4",
+    "preboot": "^4.5.2",
+    "raw-loader": "^0.5.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.2.0",
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1",
+    "zone.js": "^0.8.5"
+  }
+}

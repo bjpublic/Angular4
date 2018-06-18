@@ -1,0 +1,53 @@
+<html>
+<head>
+    <script src="jquery-3.1.1.js"></script>
+    <script src="angular-1.6.2.js"></script>
+    <script src="zone-0.8.3.js"></script>
+</head>
+<body>
+    <div ng-controller="mainCtrl">
+        <div>{{text}}</div>
+        <button id="btn">Test</button>
+    </div>
+
+    <script>
+        angular.module( "app", [] ).
+        controller( "mainCtrl", function( $scope )
+        {
+            $scope.text = "hello";
+            
+            //AngularJS의 컨트롤러 안에서
+            //jQuery를 통해 click 이벤트를 핸들링 한다.
+            $( "#btn" ).click(function() {
+                $scope.text = "world";
+            });
+        });
+
+        //DOM load가 끝나면 실행되도록 하기 위해 jQuery를 이용한다.
+        $(function()
+        {
+            //Zone을 새로 생성한다.
+            Zone.current.fork(
+            {
+                //zone 안에서 이벤트가 발생하면 onInvokeTask가 실행된다.
+                onInvokeTask : function(
+                   delegate, currentZone, targetZone, task,
+                   applyThis, applyArgs )
+                {
+                    //일단 정의된 이벤트 핸들러를 호출한다.
+                    delegate.invokeTask(
+                        targetZone, task, applyThis, applyArgs );
+
+                    //task가 실행되고 난 후, scope의 apply를 호출해서
+                    //digest loop가 실행되게 한다.
+                    angular.element( document ).scope().$apply();
+                }
+            }).run(function()
+            {
+                //생성된 zone 안에서 수동으로 angular를 bootstrap 시킨다.
+                angular.bootstrap( document, [ "app" ] );
+            });
+        });
+    </script>
+</body>
+</html>
